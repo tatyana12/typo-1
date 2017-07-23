@@ -1,60 +1,44 @@
-env = ENV["RAILS_ENV"] || 'development'
-dbfile = File.expand_path("../config/database.yml", __FILE__)
+source 'https://rubygems.org'
 
-#unless File.exists?(dbfile)
-#  raise "You need to configure config/database.yml first"
-#else
-#  conf = YAML.load(File.read(dbfile))
-#  adapter = conf[env]['adapter']
-#  raise "You need define an adapter in your database.yml" if adapter == '' || adapter.nil?
-#  case adapter
-#  when 'sqlite3'
-#    gem 'sqlite3'
-#  when 'postgresql'
-#    gem 'pg'
-#  when 'mysql'
-#    gem 'sam-mysql-ruby'
-#  else
-#    raise "Don't know what gem to use for adapter #{adapter}"
-#  end
-#end
+ruby '2.3.0'
+gem 'rails', '4.2.6'
+# Bundle edge Rails instead:
+# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+# for Heroku deployment - as described in Ap. A of ELLS book
+group :development, :test do
+  gem 'sqlite3'
+  gem 'byebug'
+  gem 'database_cleaner', '1.4.1'
+  gem 'capybara', '2.4.4'
+  gem 'launchy'
+  gem 'rspec-rails', '3.3.2'
+  gem 'ZenTest', '4.11.0'
+  gem 'simplecov'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels'
+end
 group :production do
   gem 'pg'
 end
 
-source 'https://rubygems.org'
-ruby "2.3.0"
+# Gems used only for assets and not required
+# in production environments by default.
 
-gem 'thin'
-gem 'rails', '~> 3.0.10'
-gem 'require_relative'
-gem 'htmlentities'
-gem 'json'
-gem 'bluecloth', '~> 2.1'
-gem 'coderay', '~> 0.9'
-gem 'kaminari'
-gem 'RedCloth', '~> 4.2.8'
-gem 'addressable', '~> 2.1', :require => 'addressable/uri'
-gem 'mini_magick', '~> 1.3.3', :require => 'mini_magick'
-gem 'uuidtools', '~> 2.1.1'
-gem 'flickraw-cached'
-gem 'rubypants', '~> 0.2.0'
-gem 'rake', '~> 0.9.2'
-gem 'acts_as_list'
-gem 'acts_as_tree_rails3'
-gem 'recaptcha', :require => 'recaptcha/rails'
+  #gem 'therubyracer', '~> 0.12.0'
+gem 'sass-rails', '~> 5.0.3'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier', '>= 2.7.1'
 
-group :development, :test do
-  gem 'ruby-debug19'
-  gem 'factory_girl', '~> 2.2'
-  gem 'webrat'
-  gem 'rspec-rails', '~> 2.0'
-  gem 'simplecov', :require => false
-  gem 'sqlite3'
-  gem 'cucumber'
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
-  gem 'database_cleaner'
-  gem 'capybara'
-end
+gem 'jquery-rails'
+gem 'haml'
+
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
