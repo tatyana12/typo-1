@@ -116,6 +116,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
+    recaptcha (0.3.4)
     require_relative (1.0.3)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
@@ -179,7 +180,6 @@ DEPENDENCIES
   acts_as_tree_rails3
   addressable (~> 2.1)
   bluecloth (~> 2.1)
-  bundler
   capybara
   coderay (~> 0.9)
   cucumber
@@ -195,6 +195,7 @@ DEPENDENCIES
   pg
   rails (~> 3.0.10)
   rake (~> 0.9.2)
+  recaptcha
   require_relative
   rspec-rails (~> 2.0)
   ruby-debug19
