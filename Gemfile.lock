@@ -179,6 +179,7 @@ DEPENDENCIES
   acts_as_tree_rails3
   addressable (~> 2.1)
   bluecloth (~> 2.1)
+  bundler
   capybara
   coderay (~> 0.9)
   cucumber
